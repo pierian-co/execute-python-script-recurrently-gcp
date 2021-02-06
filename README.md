@@ -12,7 +12,7 @@ In this exerercse, we'll updating a Googlesheet every minute with current time, 
 2. Python 3
 3. A test Googlesheet to update
 
-
+## Steps
 
 Step 1: Download GCP SDK: https://cloud.google.com/sdk/docs/install 
 
@@ -27,3 +27,8 @@ Step 5: Enable googlecoundfunction API on the project
 https://console.developers.google.com/apis/api/cloudbuild.googleapis.com/overview?project=454733612595
 
 Ste 6: Enable cloudscheduler.googleapis.com 
+
+gcloud functions deploy my_function --entry-point main --runtime python37 --trigger-resource my_topic --trigger-event google.pubsub.topic.publish --timeout 540s
+
+gcloud scheduler jobs create pubsub my_job2 --schedule "*/2 * * * *" --topic my_topic --message-body "message_body"
+
