@@ -3,7 +3,16 @@
 Many times we want our Python code to be executed repeatedly after specific interval to meet business goals. Some examples:
 1. Read data from an offline source every mid-night and update your business reports
 2. Vaidate the data for PII every hour
-3. Send emails to a user-list to remind 
+3. Send emails to a user-list to remind
+
+In this exerercse, we'll updating a Googlesheet every minute with current time, using Google Cloud.
+
+## Prerequisites:
+1. Access to Google Cloud and its components: Cloud Function, Cloud Scheduler and Pub-Sub
+2. Python 3
+3. A test Googlesheet to update
+
+
 
 Step 1: Download GCP SDK: https://cloud.google.com/sdk/docs/install 
 
