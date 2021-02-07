@@ -5,16 +5,34 @@ Many times we want our Python code to be executed repeatedly after specific inte
 2. Vaidate the data for PII every hour
 3. Send emails to a user-list to remind
 
-In this exerercse, we'll updating a Googlesheet every minute with current time, using Google Cloud.
+In this exerercse, we'll sending an email from a Gmail account every minute, using Google Cloud.
 
 ## Prerequisites:
 1. Access to Google Cloud and its components: Cloud Function, Cloud Scheduler and Pub-Sub
 2. Python 3
-3. A test Googlesheet to update
+3. A Gmail account that can be used to send emails, and another email account to recieve emails
 
-## Steps
+## Steps Summary
+Step 1: Create a project in GCP
 
-Step 1: Download GCP SDK: https://cloud.google.com/sdk/docs/install 
+Step 2: Prepare local environmant for GCP actions
+
+Step 3: Setup Python locally
+
+Step 4: Enable Google Clound Function and Cloud Scheduler on your project
+
+Ste 5: Setup Gmail account to send emails using SMTP
+
+Step 6: Setup Python code to execute recurringly
+
+## Steps in detail
+
+### Step 1: Create a project in GCP
+
+Login to ![Google Cloud] (https://console.developers.google.com/)  and create a new project
+
+
+Download GCP SDK: https://cloud.google.com/sdk/docs/install 
 
 Step 2: Select your current project
 
