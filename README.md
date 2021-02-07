@@ -23,7 +23,9 @@ In this exerercse, we'll sending an email from a Gmail account every minute, usi
 
 [Step 5: Send test email](#step5)
 
-[Step 6: Enable Google Clound Function and Cloud Scheduler on your project](#step6)
+[Step 6: Enable required Google Clound APIs on your project](#step6)
+
+[Step 7: Schedule Python script using Cloud Function and Pub-Sub(#step7)
 
 
 ## Steps in detail
@@ -70,17 +72,20 @@ For security reasons, Gmail doesnt allow emails to be sent programmatically unti
 
 > In case your script has dependencies on packages that are needed to be installed using pip, create a *requirements.txt* and add all those these (separated by enter)
 
-### <a name="step6"></a> Step 6: Enable googlecoundfunction API on the project
+### <a name="step6"></a> Step 6: Enable required GCP APIs on the project
 
-1. Go back to GCP and select the project created in [Step 1](#step1).
+1. in GCP, select the project created in [Step 1](#step1).
 
 2. Enable [Cloud Build API](https://console.developers.google.com/apis/api/cloudbuild.googleapis.com/overview)
 
 3. Enable [Cloud Scheduler API](https://console.developers.google.com/apis/api/cloudscheduler.googleapis.com/overview)
 
-4. Enable [App Engine Admin API](https://console.developers.google.com/apis/api/appengine.googleapis.com/overview(
+4. Enable [App Engine Admin API](https://console.developers.google.com/apis/api/appengine.googleapis.com/overview)
 
-5. Deploy your Python script uisng GCP Cloud using following command on the commandline
+
+### <a name="step7"></a> Step 7: Schedule Python script
+
+1. Deploy your Python script uisng GCP Cloud Functions using following command on the commandline
 
 `gcloud functions deploy NAME-OF-YOUR-FUNCTION --entry-point main --runtime python37 --trigger-resource NAME-OF-TOPIC --trigger-event google.pubsub.topic.publish --timeout 540s`
 
@@ -88,14 +93,21 @@ Example:
 
 `gcloud functions deploy my_function --entry-point main --runtime python37 --trigger-resource my_topic --trigger-event google.pubsub.topic.publish --timeout 540s`
 
-6. Create a scheduled job
+2. Create a scheduled job using Cloud Scheduler:
+
 `gcloud scheduler jobs create pubsub JOB-NAME --schedule "UNIX-STYLE-SCHEDULE-FREQUENCY" --topic NAME-OF-TOPIC --message-body "message_body"`
 
 Here's an example of for scheduling jon every one minute:
-`gcloud scheduler jobs create pubsub my_job2 --schedule "*/2 * * * *" --topic my_topic --message-body "message_body"`
 
-7. If prompted to create an App Engine, do so by pressing *Y* and selecting appropriate location for your App Engine.
+`gcloud scheduler jobs create pubsub my_job2 --schedule "*/1 * * * *" --topic my_topic --message-body "message_body"`
 
+3. If prompted to create an App Engine, do so by pressing *Y* and selecting appropriate location for your App Engine.
+
+### <a name="step8"></a> Step 8: Validate its working
+
+Check the recipient email account to confirm emails are being recieved.
+
+> Once you have tested successfully, highly recommend to turn off *less secure apps* by visiting https://www.google.com/settings/security/lesssecureapps. 
 
 
 
