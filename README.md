@@ -19,28 +19,59 @@ Step 2: Prepare local environmant for GCP actions
 
 Step 3: Setup Python locally
 
-Step 4: Enable Google Clound Function and Cloud Scheduler on your project
+Step 4: 
 
 Ste 5: Setup Gmail account to send emails using SMTP
 
 Step 6: Setup Python code to execute recurringly
 
+Enable Google Clound Function and Cloud Scheduler on your project
+
 ## Steps in detail
 
 ### Step 1: Create a project in GCP
 
-Login to ![Google Cloud] (https://console.developers.google.com/)  and create a new project
+1. Login to Google Cloud Console and [create a new project](https://console.developers.google.com/projectcreate) 
 
+![](https://user-images.githubusercontent.com/71815964/107159761-067a1700-698a-11eb-99c7-fe1b4d70f22f.png)
 
-Download GCP SDK: https://cloud.google.com/sdk/docs/install 
+2. Name the project. 
 
-Step 2: Select your current project
+### Step 2: Setup local environment for GCP actions
 
-Step 3: https://cloud.google.com/sdk/docs/authorizing
+1. Download GCP SDK from https://cloud.google.com/sdk/docs/install
 
-Step 4: Setup Python locally: https://cloud.google.com/python/docs/setup
+2. Open command line and initialise GCP SDK using command gcloud init
 
-Step 5: Enable googlecoundfunction API on the project
+3. Select Create a new configuration and provide a name
+
+4. Choose the account. It may ask you for login into GCP account. Read more about [GCP Authorizing](https://cloud.google.com/sdk/docs/authorizing)
+
+5. Select the number corresponding to the project created in Step 1. 
+
+### Step 3: Setup Python locally
+
+1. Follow steps at https://cloud.google.com/python/docs/setup to isntall Python
+
+2. Create a Virtual Environment to isolate dependencies using the steps in above URL. This should create a new directory *env* in your project-folder. 
+
+### Step 4: Setup Gmail account to send emails using SMTP
+
+For security reasons, Gmail doesnt allow emails to be sent programmatically until you enable *less secure apps* to do so.
+
+1.  Visit https://www.google.com/settings/security/lesssecureapps after logging in to your Gmail account you want to use for sending emails.
+
+### Step 5: Send test email
+
+1. Download the main.py file from this project. Provide the gmail-account, password and recipient email address in the script.
+
+2. Run the script by typing `python main.py`
+
+3. Check your Gmail account. If you have recieved an email with subject *Security Alert* then click on it and selct the option *Accpet it was you*.
+
+4. Run the script again and check the recpient-email account to confirm test email is recieved. 
+
+### Step 6: Enable googlecoundfunction API on the project
 
 https://console.developers.google.com/apis/api/cloudbuild.googleapis.com/overview?project=454733612595
 
