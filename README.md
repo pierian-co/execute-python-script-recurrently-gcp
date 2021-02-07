@@ -25,7 +25,7 @@ In this exercise, we'll sending an email from a Gmail account every minute, usin
 
 [Step 6: Enable required Google Cloud APIs on your project](#step6)
 
-[Step 7: Schedule Python script using Cloud Function and Pub-Sub(#step7)
+[Step 7: Schedule Python script using Cloud Function and Pub-Sub](#step7)
 
 
 ## Steps in detail
