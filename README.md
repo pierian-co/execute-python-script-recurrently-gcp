@@ -1,4 +1,4 @@
-# Executing Python script recurringly using Google Cloud
+# Executing Python script recurrently using Google Cloud
 
 Many times we want our Python code to be executed repeatedly after specific interval to meet business goals. Some examples:
 1. Read data from an offline source every mid-night and update your business reports
